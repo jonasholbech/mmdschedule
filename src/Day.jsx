@@ -18,21 +18,16 @@ class Day extends Component {
 
         for (var key in this.props.slots) {
             if(this.props.slots.hasOwnProperty(key)) {
-                slots.push(<tr key={key}><Slot slot={key} text={this.props.slots[key]}/></tr>);
+                slots.push(<Slot key={key} slot={key} text={this.props.slots[key]}/>);
             }
         }
 
         return (
-            <table className="Day">
-                <thead>
-                <tr>
-                <td>{this.getDateOfISOWeek(this.props.day,47,2016)}</td>
-                </tr>
-                </thead>
-                <tbody>
+            <div className="Day">
+                <h3>{this.getDateOfISOWeek(this.props.day,this.props.week,2016)}</h3>
                 {slots}
-                </tbody>
-            </table>
+
+            </div>
         );
     }
 }

@@ -5,8 +5,7 @@ class Calendar extends Component {
     render() {
         return (
             <div className="Calendar">
-                <h2>Calendar</h2>
-                <Week week={this.props.week} days={this.props.days}/>
+                <Week week={this.props.week} days={this.props.days} team={this.props.team} semester={this.props.semester}/>
             </div>
         );
     }

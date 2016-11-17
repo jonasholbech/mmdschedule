@@ -11,30 +11,31 @@ class Slot extends Component {
     slotClicked(e){
         //console.log(this);
         var f = document.querySelector("#editor");
-        f.querySelector('textarea').value=this.state.text;
+        f.querySelector('textarea').value=this.state.text.replace(/<br \/>/g,'');
         f.classList.add("visible");
+        e.preventDefault();
+        f.querySelector('textarea').focus();
         var that=this;
         f.querySelector('button').addEventListener('click', function x(e){
             e.preventDefault();
             that.setState(
                 {
-                    text:f.querySelector('textarea').value
+                    text:f.querySelector('textarea').value.replace(/([^>\r\n]?)(\r\n|\n\r|\r|\n)/g, '$1' + '<br />' + '$2')
                 }
             );
 
             f.classList.remove('visible');
             f.querySelector('button').removeEventListener('click', x);
         });
-        /*
+    }
+    componentWillReceiveProps(newProps){
         this.setState({
-            text:<textarea>{this.state.text}</textarea>
-        });*/
+            text:newProps.text
+        });
     }
     render() {
         return (
-            <td className="Slot" onDoubleClick={this.slotClicked} ref={(td) => this.cell = td}>
-                {this.state.text}
-            </td>
+            <div className="Slot" onDoubleClick={this.slotClicked} dangerouslySetInnerHTML={{__html: this.state.text}}></div>
         );
     }
 }

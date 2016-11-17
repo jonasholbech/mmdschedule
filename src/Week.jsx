@@ -5,25 +5,18 @@ class Week extends Component {
     render() {
         var days = [];
         for (var key in this.props.days) {
-            //console.log(key);
             if(this.props.days.hasOwnProperty(key)){
-                days.push(<td key={key}><Day day={key} slots={this.props.days[key].slots} /></td>)
+                days.push(<Day key={key} day={key} week={this.props.week} slots={this.props.days[key].slots} team={this.props.team} semester={this.props.semester} />)
             }
         }
-/*
-        this.props.days.forEach((day)=>{
-           days.push(<Day day={day} />)
-        });*/
+
         return (
-            <table className="Week">
-                <thead>
-                    <tr><th colSpan="6">Week {this.props.week}</th></tr></thead>
-                <tbody>
-                    <tr>
-                        {days}
-                    </tr>
-                </tbody>
-            </table>
+            <article className="Week">
+                <h2>Week {this.props.week}</h2>
+                <section className="week">
+                    {days}
+                </section>
+            </article>
         );
     }
 }

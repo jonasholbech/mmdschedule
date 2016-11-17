@@ -6,13 +6,17 @@
 }
 
 .App-logo {
-  animation: App-logo-spin infinite 20s linear;
   height: 80px;
+  position:absolute;
+  right:80px;
 }
-
+.App-logo.animated {
+  animation: App-logo-spin infinite 20s linear;
+}
 .App-header {
+  position: relative;
   background-color: #222;
-  height: 150px;
+  /*height: 150px;*/
   padding: 20px;
   color: white;
 }
@@ -24,10 +28,6 @@
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
-}
-table {
-  width:100%;
-  border: 1px solid blue;
 }
 #editor {
   display:none;
@@ -46,9 +46,32 @@ table {
 #editor.visible {
   display:block;
 }
-td td {
-  display:block;
-  min-height: 40px;
-  min-width:40px;
-  background-color:red;
+section.week {
+  display:flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+
+  align-content: stretch;
+}
+div.Day {
+  width: 20vw;
+  display:flex;
+  margin-right:2px;
+  flex-direction: column;
+  align-content: stretch;
+
+}
+.Day h3 {
+  height: 30px;
+  color: #fff;
+  background-color:#222;
+}
+.Slot, .Day h3 {
+  border: 1px solid #bbb;
+  margin-bottom:2px;
+
+}
+.Slot {
+  flex-grow:1;
+  min-height: 10vh;
 }
