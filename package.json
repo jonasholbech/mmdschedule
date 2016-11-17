@@ -2,6 +2,7 @@
   "name": "MMDSchedule",
   "version": "0.1.0",
   "private": true,
+  "homepage": "http://jonasholbech.github.io/mmdschedule",
   "devDependencies": {
     "react-scripts": "0.7.0"
   },

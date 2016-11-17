@@ -100,15 +100,19 @@ class App extends Component {
             <div className="pull">
                 <img src={logo} className="App-logo" alt="logo" />
                 <form onChange={this.onFormChange}>
-                    <select name="team" ref="team">
-                        <option>int</option>
-                        <option>dk</option>
-                    </select>
-                    <select name="semester" ref="semester">
-                        <option>1</option>
-                        <option>2</option>
-                        <option>3</option>
-                    </select>
+                    <label>Line:
+                        <select name="team" ref="team">
+                            <option>int</option>
+                            <option>dk</option>
+                        </select>
+                    </label>
+                    <label>Semester:
+                        <select name="semester" ref="semester">
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                        </select>
+                    </label>
                 </form>
             </div>
             <header>
